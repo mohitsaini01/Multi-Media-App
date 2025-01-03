@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:layout_margin="20dp"
-    app:cardElevation="20dp">
+    app:cardCornerRadius="30dp"
+    app:cardElevation="30dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <ImageView
             android:id="@+id/profile1"
@@ -38,6 +40,15 @@
             app:layout_constraintStart_toStartOf="@+id/profile1"
 
              />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_play_arrow_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 
 

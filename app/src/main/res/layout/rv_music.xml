@@ -6,19 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    app:cardElevation="20dp">
+    app:cardCornerRadius="25dp"
+    app:cardElevation="30dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#A99A96">
 
         <ImageView
             android:id="@+id/profile"
             android:layout_width="100dp"
-            android:layout_height="0dp"
+            android:layout_height="70dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/name"
+            android:paddingLeft="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/music" />
@@ -27,19 +29,14 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
             android:fontFamily="@font/big_shoulders_stencil_text_thin"
-
             android:text="Song Name"
             android:textColor="@color/black"
-
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profile"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/artistname"
@@ -49,7 +46,6 @@
             android:text="Artist Name"
             app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintHorizontal_bias="0.001"
-
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toTopOf="@+id/name" />
 
