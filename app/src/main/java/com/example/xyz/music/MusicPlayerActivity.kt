@@ -2,6 +2,7 @@ package com.example.xyz.music
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -44,6 +45,7 @@ class MusicPlayerActivity : AppCompatActivity() {
         stopButton.setOnClickListener {
             startMusicService("STOP")
         }
+
     }
 
     private fun startMusicService(action: String) {
