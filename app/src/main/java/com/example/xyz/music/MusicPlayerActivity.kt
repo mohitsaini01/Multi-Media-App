@@ -19,6 +19,8 @@ class MusicPlayerActivity : AppCompatActivity() {
     private lateinit var musicTitle: TextView
     private lateinit var seekBar: SeekBar
     private lateinit var musicIcon: ImageView
+    private lateinit var musicNext: ImageView
+    private lateinit var musicPrev: ImageView
 
     private var musicPath: String? = null
 
@@ -32,6 +34,8 @@ class MusicPlayerActivity : AppCompatActivity() {
         musicTitle = findViewById(R.id.music_title)
         seekBar = findViewById(R.id.seekBar)
         musicIcon = findViewById(R.id.imageView4)
+        musicNext = findViewById(R.id.next_button)
+        musicPrev = findViewById(R.id.previous_button)
 
         val defaultIcon = R.drawable.music // Add default icon
         musicIcon.setImageResource(defaultIcon)
@@ -58,6 +62,12 @@ class MusicPlayerActivity : AppCompatActivity() {
 
         stopButton.setOnClickListener {
             startMusicService("STOP")
+        }
+        musicNext.setOnClickListener {
+            startMusicService("NEXT")
+        }
+        musicPrev.setOnClickListener{
+            startMusicService("PREVIOUS")
         }
 
     }
