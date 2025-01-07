@@ -39,6 +39,9 @@ class MusicService : Service() {
                     mediaPlayer.start()
                     isPaused = false
                 } else if (musicPath != null) {
+                    // Set currentSongIndex based on the passed song path
+                    currentSongIndex = songList.indexOf(musicPath)
+
                     if (this::mediaPlayer.isInitialized) {
                         mediaPlayer.stop()
                         mediaPlayer.reset()
@@ -62,11 +65,11 @@ class MusicService : Service() {
             }
 
             "NEXT" -> {
-                nextTrack()
+                nextTrack()  // Proceed to next song in the list
             }
 
             "PREVIOUS" -> {
-                previousTrack()
+                previousTrack()  // Go to previous song in the list
             }
 
             "STOP" -> {
@@ -81,6 +84,7 @@ class MusicService : Service() {
 
         return START_NOT_STICKY
     }
+
 
     override fun onDestroy() {
         if (this::mediaPlayer.isInitialized) {
@@ -159,20 +163,14 @@ class MusicService : Service() {
             it.close()
         }
 
-        if (songList.isNotEmpty()) {
-            mediaPlayer = MediaPlayer().apply {
-                setDataSource(songList[currentSongIndex])
-                prepare()
-                start()
-            }
-        } else {
+        if (songList.isEmpty()) {
             Log.e("MusicService", "No songs found on device")
         }
     }
 
     private fun nextTrack() {
         if (songList.isNotEmpty()) {
-            currentSongIndex = (currentSongIndex + 1) % songList.size
+            currentSongIndex = (currentSongIndex + 1) % songList.size  // Loop through songs
             mediaPlayer.stop()
             mediaPlayer.reset()
             mediaPlayer.setDataSource(songList[currentSongIndex])
@@ -184,7 +182,7 @@ class MusicService : Service() {
 
     private fun previousTrack() {
         if (songList.isNotEmpty()) {
-            currentSongIndex = if (currentSongIndex - 1 < 0) songList.size - 1 else currentSongIndex - 1
+            currentSongIndex = if (currentSongIndex - 1 < 0) songList.size - 1 else currentSongIndex - 1  // Loop to last song
             mediaPlayer.stop()
             mediaPlayer.reset()
             mediaPlayer.setDataSource(songList[currentSongIndex])
